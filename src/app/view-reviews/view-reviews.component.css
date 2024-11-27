@@ -1,0 +1,7 @@
+.custom-img {
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto; 
+}

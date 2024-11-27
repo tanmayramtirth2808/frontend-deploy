@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card p-4 shadow-sm">
+        <h3 class="card-title text-center mb-4">Login</h3>
+
+        <form>
+          <div class="form-group mb-3">
+            <label for="username" class="form-label">Enter Username</label>
+            <input [(ngModel)]="username" type="text" id="username" class="form-control" placeholder="Username" name="username">
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="password" class="form-label">Enter Password</label>
+            <div class="input-group">
+              <input [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" id="password" class="form-control" placeholder="Password" name="password">
+              <button type="button" class="btn btn-outline-secondary" (click)="toggleShowPassword()">
+                <i [ngClass]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="text-end mb-4">
+            <a [routerLink]="'/forgot-password'" class="text-decoration-none">Forgot Password?</a>
+          </div>
+
+          <button type="submit" (click)="onLogin()" class="btn btn-primary w-100">Login</button>
+
+          <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+            {{ errorMessage }}
+          </div>
+        </form>
+
+        <div class="text-center mt-4">
+          <a [routerLink]="'/register'" class="text-decoration-none">New User? Register here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between mb-4">
+    <h2>Book List</h2>
+    <button class="btn btn-primary" (click)="addBook()">Add One Book</button>
+  </div>
+
+  <button class="btn btn-info" id="custombutton" (click)="addBookByFromControl()">Add Multiple Books</button>
+
+  <div class="mb-4">
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Search by title" 
+      [(ngModel)]="searchTerm" 
+      (input)="searchBooks()"
+    />
+  </div>
+
+  <div class="mb-3">
+    <button 
+      *ngIf="selectedBooks.length > 0" 
+      class="btn btn-danger"
+      (click)="deleteSelectedBooks()">
+      Delete Selected
+    </button>
+  </div>
+
+  <div *ngIf="noResults" class="alert alert-info">
+    No books found matching the search term.
+  </div>
+  
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>
+          <input
+            type="checkbox"
+            (change)="toogleSelectAll($event)"
+            [checked]="isAllSelected()" />
+        </th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books | paginate: { itemsPerPage: 10, currentPage: page}">
+        <td>
+          <input type="checkbox"
+          [(ngModel)]="book.selected"
+         />
+        </td>
+        <td><img [src]="book.imageUrl" alt="{{book.title}}" class="img-fluid book-image" style="max-width: 150px;"></td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.description }}</td>
+        <td class="text-center">
+          <button class="btn btn-info btn-sm me-2" (click)="viewBook(book)"><i class="bi bi-eye"></i></button>
+          <button class="btn btn-warning btn-sm me-2" (click)="editBook(book)"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-danger btn-sm" (click)="deleteBook(book._id)"><i class="bi bi-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+  <button class="btn btn-info" (click)="viewChart()">Chart 1</button>
+  <br>
+  <br>
+  <br>
+  <button class="btn btn-warning" (click)="viewGraph2()">Chart 2</button>
+  <br>
+  <br>
+  <br>
+  <button class="btn btn-primary" (click)="viewChart()">Chart 3</button>
+</div>

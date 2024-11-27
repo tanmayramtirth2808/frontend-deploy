@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-start mb-4">
+      <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+    </div>
+  
+    <h3>Add Review</h3>
+    <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
+      <div class="mb-3">
+        <label for="content" class="form-label">Review Content</label>
+        <textarea 
+          id="content" 
+          class="form-control" 
+          [(ngModel)]="content" 
+          name="content" 
+          rows="4" 
+          required>
+        </textarea>
+      </div>
+  
+      <div class="d-flex justify-content-end mt-3">
+        <button 
+          type="submit" 
+          class="btn btn-success" 
+          [disabled]="!reviewForm.form.valid">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+  
