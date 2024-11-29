@@ -27,7 +27,6 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { Graph2Component } from './graph2/graph2.component';
 import { Graph3Component } from './graph3/graph3.component';
 import { EncryptionInterceptor } from './encryption.interceptor';
-import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,6 @@ import { DemoComponent } from './demo/demo.component';
     ChartComponent,
     Graph2Component,
     Graph3Component,
-    DemoComponent,
 
   ],
   imports: [
