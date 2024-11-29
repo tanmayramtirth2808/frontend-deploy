@@ -7,8 +7,8 @@ import { Observable, tap } from 'rxjs';
 })
 export class LoginServiceService {
 
-  private loginUrl = "http://localhost:5000/auth/login";
-  private registerUrl = "http://localhost:5000/auth/register";
+  private loginUrl = "https://backend-deploy-five.vercel.app/auth/login";
+  private registerUrl = "https://backend-deploy-five.vercel.app/auth/register";
   private userUrl = "http://localhost:5000/auth/user";
   
   constructor(private http: HttpClient) { }
